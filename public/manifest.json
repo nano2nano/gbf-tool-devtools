@@ -1,0 +1,32 @@
+{
+  "name": "gbf_tools",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "gbf tool(ts version)",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://game.granbluefantasy.jp/"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "devtools_page": "devtools.html",
+  "permissions": [
+    "background",
+    "debugger",
+    "storage",
+    "tabs",
+    "webRequest",
+    "alarms"
+  ],
+  "host_permissions": [
+    "*://*.granbluefantasy.jp/"
+  ]
+}
