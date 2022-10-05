@@ -12,7 +12,7 @@
   "author": "nano",
   "license": "ISC",
   "devDependencies": {
-    "@types/chrome": "^0.0.194",
+    "@types/chrome": "^0.0.197",
     "@types/webextension-polyfill": "^0.9.0",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "copy-webpack-plugin": "^11.0.0",
