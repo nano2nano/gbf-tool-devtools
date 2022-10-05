@@ -15,14 +15,23 @@ async function requestHandler(request: DevtoolsNetwork.Request) {
   switch (true) {
     case isResultRequest(url):
       if (res.appearance !== null) {
-        // browser.tabs.update(tabId, { url: 'https://game.granbluefantasy.jp/#event/treasureraid124' });
-        const message = {
-          tag: 'appear_hell',
-          tab_id: tabId,
-        };
-        await browser.runtime.sendMessage(message);
+        // update tab url
+        const items = await browser.storage.sync.get({ hell_page: '' });
+        const hellPage = items.hell_page;
+        if (hellPage !== '') {
+          browser.tabs.update(tabId, { url: hellPage });
+          // const message = {
+          //   tag: 'appear_hell',
+          //   tab_id: tabId,
+          // };
+          // await browser.runtime.sendMessage(message);
+        }
       } else {
-        // browser.tabs.update(tabId, { url: 'https://game.granbluefantasy.jp/#quest/supporter/793071/1/0/10448' });
+        const items = await browser.storage.sync.get({ next_quest_page: '' });
+        const nextQuestPage = items.next_quest_page;
+        if (nextQuestPage !== '') {
+          browser.tabs.update(tabId, { url: nextQuestPage });
+        }
       }
       break;
     case isQuestResultRequest(url): {

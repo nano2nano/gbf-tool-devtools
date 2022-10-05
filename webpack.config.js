@@ -15,6 +15,7 @@ module.exports = {
     content: `${__dirname}/src/content/content.ts`,
     background: `${__dirname}/src/background/background.ts`,
     devtools: `${__dirname}/src/devtools/devtools.ts`,
+    options: `${__dirname}/src/options/options.ts`,
   },
   module: {
     rules: [
